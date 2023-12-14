@@ -30,29 +30,6 @@
                     android:layout_height="wrap_content"
                     android:textSize="20sp"/>
 
-                <TextView
-                    android:id="@+id/editTextProducao"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="20sp"/>
-
-                <TextView
-                    android:id="@+id/editTextDuracao"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="20sp"/>
-
-                <TextView
-                    android:id="@+id/editTextGenero"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="20sp"/>
-
-                <TextView
-                    android:id="@+id/editTextNota"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="20sp"/>
 
             </LinearLayout>
             <ImageView

@@ -34,10 +34,10 @@ class MovieAdapter(): RecyclerView.Adapter<MovieAdapter.MovieViewHolder>(), Filt
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         holder.nome.text = moviesList[position].name
         holder.anoLancamento.text = moviesList[position].releaseYear
-        holder.producao.text = moviesList[position].producer
+/*        holder.producao.text = moviesList[position].producer
         holder.duracao.text = moviesList[position].duration
         holder.genero.text = moviesList[position].genre
-        holder.nota.text = moviesList[position].note
+        holder.nota.text = moviesList[position].note*/
     }
     override fun getItemCount(): Int {
         return moviesList.size
@@ -46,10 +46,10 @@ class MovieAdapter(): RecyclerView.Adapter<MovieAdapter.MovieViewHolder>(), Filt
     {
         val nome = view.editTextNome
         val anoLancamento = view.editTextAnoLancamento
-        val producao = view.editTextProducao
+/*        val producao = view.editTextProducao
         val duracao = view.editTextDuracao
         val genero = view.editTextGenero
-        val nota = view.editTextNota
+        val nota = view.editTextNota*/
         init {
             view.root.setOnClickListener {
                 listener?.onItemClick(adapterPosition)

@@ -70,4 +70,9 @@
         android:layout_height="wrap_content"
         android:textSize="20sp"/>
 
+
+    <CheckBox android:id="@+id/checkbox_watched"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/watched"/>
 </LinearLayout>

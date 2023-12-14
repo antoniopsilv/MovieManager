@@ -6,6 +6,7 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CheckBox
 import android.widget.EditText
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
@@ -31,6 +32,7 @@ class DetailFragment : Fragment() {
     lateinit var duracaoEditText: EditText
     lateinit var generoEditText: EditText
     lateinit var notaEditText: EditText
+    lateinit var checkBox: CheckBox
 
     lateinit var viewModel: MovieViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -56,6 +58,7 @@ class DetailFragment : Fragment() {
         duracaoEditText = binding.commonLayout.editTextDuracao
         generoEditText = binding.commonLayout.editTextGenero
         notaEditText = binding.commonLayout.editTextNota
+        checkBox = binding.commonLayout.checkboxWatched
 
         val id = requireArguments().getInt("id")
         viewModel.getContactById(id)
@@ -69,6 +72,7 @@ class DetailFragment : Fragment() {
                 duracaoEditText.setText(movie.duration)
                 generoEditText.setText(movie.genre)
                 notaEditText.setText(movie.note)
+                checkBox.isChecked
             }
         }
         val menuHost: MenuHost = requireActivity()
@@ -86,6 +90,7 @@ class DetailFragment : Fragment() {
                             movie.duration = duracaoEditText.text.toString()
                             movie.genre = generoEditText.text.toString()
                             movie.note = notaEditText.text.toString()
+                            movie.watched = checkBox.isChecked
 
                             viewModel.update(movie)
                             Snackbar.make(binding.root, "Filme alterado", Snackbar.LENGTH_SHORT)
@@ -105,4 +110,8 @@ class DetailFragment : Fragment() {
             }
         }, viewLifecycleOwner, Lifecycle.State.RESUMED)
     }
+
 }
+
+
+
