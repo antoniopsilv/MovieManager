@@ -50,16 +50,21 @@ class RegisterFragment : Fragment() {
                 return when (menuItem.itemId) {
                     R.id.action_salvarContato -> {
                         val nome = binding.commonLayout.editTextNome.text.toString()
-                        val anoLancamento = binding.commonLayout.editTextAnoLancamento.toString()
+                        val anoLancamento = binding.commonLayout.editTextAnoLancamento.text.toString()
                         val producao = binding.commonLayout.editTextProducao.text.toString()
                         val duracao = binding.commonLayout.editTextDuracao.text.toString()
                         val genero = binding.commonLayout.editTextGenero.text.toString()
                         val nota = binding.commonLayout.editTextNota.text.toString()
 
                         val movie = Movie(nome, anoLancamento,producao, duracao, genero, nota)
-                        viewModel.insert(movie)
-                        Snackbar.make(binding.root, "Filme inserido", Snackbar.LENGTH_SHORT).show()
-                        findNavController().popBackStack()
+                        if( !viewModel.insert(movie).isCompleted) {
+                            Snackbar.make(binding.root, "Filme inserido", Snackbar.LENGTH_SHORT)
+                                .show()
+                            findNavController().popBackStack()
+                        } else {
+                            Snackbar.make(binding.root, "Filme já existente", Snackbar.LENGTH_SHORT)
+                                .show()
+                        }
                         true
                     }
                     else -> false
