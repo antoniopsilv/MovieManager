@@ -48,7 +48,7 @@ class RegisterFragment : Fragment() {
             override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
                 // Handle the menu selection
                 return when (menuItem.itemId) {
-                    R.id.action_salvarContato -> {
+                    R.id.action_alterarFilme-> {
                         val nome = binding.commonLayout.editTextNome.text.toString()
                         val anoLancamento = binding.commonLayout.editTextAnoLancamento.text.toString()
                         val producao = binding.commonLayout.editTextProducao.text.toString()
@@ -56,15 +56,11 @@ class RegisterFragment : Fragment() {
                         val genero = binding.commonLayout.editTextGenero.text.toString()
                         val nota = binding.commonLayout.editTextNota.text.toString()
 
-                        val movie = Movie(nome, anoLancamento,producao, duracao, genero, nota)
-                        if( !viewModel.insert(movie).isCompleted) {
+                        val movie = Movie(0,nome, anoLancamento,producao, duracao, genero, nota)
+                        viewModel.insert(movie)
                             Snackbar.make(binding.root, "Filme inserido", Snackbar.LENGTH_SHORT)
                                 .show()
                             findNavController().popBackStack()
-                        } else {
-                            Snackbar.make(binding.root, "Filme já existente", Snackbar.LENGTH_SHORT)
-                                .show()
-                        }
                         true
                     }
                     else -> false

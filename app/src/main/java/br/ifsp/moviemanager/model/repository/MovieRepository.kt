@@ -22,7 +22,7 @@ class MovieRepository (private val movieDAO: MovieDAO) {
         return movieDAO.getAllContacts()
     }
 
-    fun getContactById(id: String): LiveData<Movie>{
+    fun getContactById(id: Int): LiveData<Movie>{
         return movieDAO.getContactById(id)
     }
 

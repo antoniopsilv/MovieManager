@@ -88,7 +88,7 @@ class MovieListFragment : Fragment() {
                 val m = movieAdapter.moviesListFilterable[pos]
 
                 val bundle = Bundle()
-                bundle.putString("id", m.name)
+                bundle.putInt("id", m.id)
 
                 findNavController().navigate(
                     R.id.action_movieListFragment_to_detailFragment,

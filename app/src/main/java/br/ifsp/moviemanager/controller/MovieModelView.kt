@@ -33,7 +33,7 @@ class MovieViewModel (application: Application): AndroidViewModel(application) {
     fun delete(movie: Movie) = viewModelScope.launch(Dispatchers.IO) {
         repository.delete(movie)
     }
-    fun getContactById(id: String) {
+    fun getContactById(id: Int) {
         viewModelScope.launch {
             movie = repository.getContactById(id)
         }

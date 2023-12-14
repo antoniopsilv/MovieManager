@@ -23,7 +23,7 @@ interface MovieDAO {
     @Query("SELECT * FROM movie ORDER BY name")
     fun getAllContacts(): LiveData<List<Movie>>
 
-    @Query("SELECT * FROM movie WHERE name=:id")
-    fun getContactById(id: String): LiveData<Movie>
+    @Query("SELECT * FROM movie WHERE id=:id")
+    fun getContactById(id: Int): LiveData<Movie>
 
 }
