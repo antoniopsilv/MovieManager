@@ -14,7 +14,7 @@ class MovieViewModel (application: Application): AndroidViewModel(application) {
 
     private val repository: MovieRepository
     var allContacts: LiveData<List<Movie>>
-    lateinit var veiculo: LiveData<Movie>
+    lateinit var movie: LiveData<Movie>
 
     init {
         val dao =  MovieDatabase.getDatabase(application).movieDAO()
@@ -32,6 +32,11 @@ class MovieViewModel (application: Application): AndroidViewModel(application) {
 
     fun delete(movie: Movie) = viewModelScope.launch(Dispatchers.IO) {
         repository.delete(movie)
+    }
+    fun getContactById(id: String) {
+        viewModelScope.launch {
+            movie = repository.getContactById(id)
+        }
     }
 
 }

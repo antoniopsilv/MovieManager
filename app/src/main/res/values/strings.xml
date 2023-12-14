@@ -7,4 +7,6 @@
     <string name="genero">Genero</string>
     <string name="nota">Nota</string>
     <string name="salvar">Salvar</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

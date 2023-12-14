@@ -9,9 +9,11 @@ import br.ifsp.moviemanager.databinding.TileMovieBinding
 import br.ifsp.moviemanager.model.entity.Movie
 
 class MovieAdapter(): RecyclerView.Adapter<MovieAdapter.MovieViewHolder>(), Filterable {
+
     private lateinit var binding: TileMovieBinding
 
     var moviesList = ArrayList<Movie>()
+    var listener: MovieListener?=null
     var moviesListFilterable = ArrayList<Movie>()
     fun updateList(newList: ArrayList<Movie> ){
         moviesList = newList
@@ -25,6 +27,10 @@ class MovieAdapter(): RecyclerView.Adapter<MovieAdapter.MovieViewHolder>(), Filt
         binding = TileMovieBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return MovieViewHolder(binding)
     }
+    fun setClickListener(listener: MovieListener) {
+        this.listener = listener
+    }
+
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         holder.nome.text = moviesList[position].name
         holder.anoLancamento.text = moviesList[position].releaseYear
@@ -44,9 +50,19 @@ class MovieAdapter(): RecyclerView.Adapter<MovieAdapter.MovieViewHolder>(), Filt
         val duracao = view.editTextDuracao
         val genero = view.editTextGenero
         val nota = view.editTextNota
+        init {
+            view.root.setOnClickListener {
+                listener?.onItemClick(adapterPosition)
+            }
+        }
     }
 
     override fun getFilter(): Filter {
         TODO("Not yet implemented")
+    }
+
+    interface MovieListener
+    {
+        fun onItemClick(pos: Int)
     }
 }
