@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">MovieManager</string>
+    <string name="nome">Nome</string>
+    <string name="anoLancamento">Ano de Lançamento</string>
+    <string name="producao">Produção</string>
+    <string name="duracao">Duracao</string>
+    <string name="genero">Genero</string>
+    <string name="nota">Nota</string>
+    <string name="salvar">Salvar</string>
+</resources>
